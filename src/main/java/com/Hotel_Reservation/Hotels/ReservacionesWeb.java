@@ -56,4 +56,20 @@ public class ReservacionesWeb {
         return servicio.deleteReservation(reservationId);
     }
     
+    @GetMapping("/report-status")
+    public StatusReservas getReservas(){
+        return servicio.getReporteStatusReservas();
+        
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservaciones> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo){
+        return servicio.getReportTiempoReservas(dateOne, dateTwo);
+    }
+    
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getClientes(){
+        return servicio.servicioTopClientes();
+    }
+    
 }
